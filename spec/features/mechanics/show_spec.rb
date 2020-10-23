@@ -56,7 +56,7 @@ describe "as a user" do
           click_on("Submit")
 
           expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
-          
+
           within("#rides") do
             expect(page).to have_content("Current rides they're working on:")
             expect(page).to have_content("#{@ride_1.name}")
@@ -66,6 +66,16 @@ describe "as a user" do
           end
         end
       end
+    end
+  end
+  it "then I see all their rides listed in alphabetical order" do
+    visit("/mechanics/#{@mechanic_1.id}")
+
+    within("#rides") do
+      expect(page).to have_content("Current rides they're working on:")
+      expect(page.all('li')[0]).to have_content("#{@ride_1.name}")
+      expect(page.all('li')[1]).to have_content("#{@ride_2.name}")
+      expect(page.all('li')[2]).to have_content("#{@ride_3.name}")
     end
   end
 end
