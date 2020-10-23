@@ -43,8 +43,8 @@ describe "as a visitor" do
           expect(page).to have_content("#{@ride_3.name}")
         end
       end
-      save_and_open_page
-      expect(page).to have_content("Average Thrill Rating of Rides: #{@amusement_park_1.average_thrill_rating_of_rides}/10")
+      
+      expect(page).to have_content("Average Thrill Rating of Rides: #{@amusement_park_1.average_thrill_rating_of_rides.to_f.round(1)}/10")
     end
   end
 end
