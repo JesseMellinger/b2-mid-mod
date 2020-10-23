@@ -25,8 +25,8 @@ describe "as a visitor" do
 
   end
   describe "when I visit an amusement park’s show page" do
-    it "I see the name and price of admissions for that amusement park, and I see the names of all the rides that are at that park, and I see the average thrill rating of this amusement park’s rides"
-      visit("amusementparks/#{@amusement_park_1.id}")
+    it "I see the name and price of admissions for that amusement park, and I see the names of all the rides that are at that park, and I see the average thrill rating of this amusement park’s rides" do
+      visit("/amusementparks/#{@amusement_park_1.id}")
 
       expect(page).to have_content("#{@amusement_park_1.name}")
       expect(page).to have_content("Admissions: $#{@amusement_park_1.admission_price}")
@@ -43,7 +43,8 @@ describe "as a visitor" do
           expect(page).to have_content("#{@ride_3.name}")
         end
       end
-
+      save_and_open_page
       expect(page).to have_content("Average Thrill Rating of Rides: #{@amusement_park_1.average_thrill_rating_of_rides}/10")
+    end
   end
 end
