@@ -4,10 +4,11 @@
 <div id="rides">
   <h3>Current rides they're working on:</h3>
   <% @mechanic.rides.each do |ride| %>
-    <%= ride.name %>
+    <%= ride.name %></br>
   <% end %>
 </div>
 
+<h2>Add a ride to workload:</h2>
 <%= form_tag "/ride_mechanics/#{@mechanic.id}/:ride_id", method: :post do %>
   <%= label_tag :id %>
   <%= text_field_tag :id %>

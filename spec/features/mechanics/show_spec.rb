@@ -50,7 +50,7 @@ describe "as a user" do
       describe "when I fill in that field with an id of a ride that exists in the database and I click Submit" do
         it "I’m taken back to that mechanics show page and I see the name of that newly added ride on this mechanics show page" do
           visit("/mechanics/#{@mechanic_1.id}")
-
+          save_and_open_page
           fill_in("Id", with: "#{@ride_4.id}" )
 
           click_on("Submit")
