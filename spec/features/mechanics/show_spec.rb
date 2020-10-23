@@ -20,8 +20,8 @@ describe "as a user" do
                            thrill_rating: 6,
                            amusement_park_id: @amusement_park_1.id)
 
-    @ride_4 = Ride.create!(name: "The Great Bear",
-                           thrill_rating: 6,
+    @ride_4 = Ride.create!(name: "Splash Mountain",
+                           thrill_rating: 5,
                            amusement_park_id: @amusement_park_1.id)
 
     RideMechanic.create!(mechanic_id: @mechanic_1.id,
@@ -50,13 +50,13 @@ describe "as a user" do
       describe "when I fill in that field with an id of a ride that exists in the database and I click Submit" do
         it "I’m taken back to that mechanics show page and I see the name of that newly added ride on this mechanics show page" do
           visit("/mechanics/#{@mechanic_1.id}")
-          save_and_open_page
+
           fill_in("Id", with: "#{@ride_4.id}" )
 
           click_on("Submit")
 
           expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
-
+          
           within("#rides") do
             expect(page).to have_content("Current rides they're working on:")
             expect(page).to have_content("#{@ride_1.name}")

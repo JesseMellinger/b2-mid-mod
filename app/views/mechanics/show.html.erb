@@ -9,7 +9,7 @@
 </div>
 
 <h2>Add a ride to workload:</h2>
-<%= form_tag "/ride_mechanics/#{@mechanic.id}/:ride_id", method: :post do %>
+<%= form_tag "/ride_mechanics/#{@mechanic.id}", method: :post do %>
   <%= label_tag :id %>
   <%= text_field_tag :id %>
 

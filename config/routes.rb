@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   get '/amusementparks/:amusement_park_id', to: 'amusement_parks#show'
 
-  post '/ride_mechanics/:mechanic_id/:ride_id', to: 'ride_mechanics#create'
+  post '/ride_mechanics/:mechanic_id', to: 'ride_mechanics#create'
 end
